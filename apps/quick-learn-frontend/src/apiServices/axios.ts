@@ -4,9 +4,16 @@ import { getClientIp } from './ipService';
 // eslint-disable-next-line import/no-cycle
 import { getAccessToken } from './authService';
 
-const baseURL = `${process.env.NEXT_PUBLIC_BASE_API_URL ?? 'api'}/${
-  process.env.NEXT_PUBLIC_API_VERSION ?? 'v1'
-}`;
+// Check if we are in the browser environment
+const isBrowser = typeof window !== 'undefined';
+
+// Construct the base URL dynamically
+const baseURL = isBrowser
+  ? `${window.location.origin}/api/${process.env.API_VERSION ?? 'v1'}`
+  : `${process.env.NEXT_PUBLIC_BASE_API_URL ?? 'api'}/${process.env.API_VERSION ?? 'v1'}`;
+
+console.log(baseURL);
+console.log('BACKEND_BASE_API_URL', process.env.BACKEND_BASE_API_URL);
 
 export type AxiosErrorObject = AxiosError & {
   response: {
