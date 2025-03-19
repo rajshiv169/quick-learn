@@ -16,7 +16,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: process.env.BUCKET_URL || '',
+        hostname: process.env.BUCKET_URL || 'example-bucket.com',
       },
     ],
   },
