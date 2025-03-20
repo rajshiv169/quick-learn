@@ -36,27 +36,14 @@
         "ciTargetName": "e2e-ci"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve"
-      }
+      "options": { "buildTargetName": "build", "serveTargetName": "serve" }
     }
   ],
   "generators": {
-    "@nx/next": {
-      "application": {
-        "style": "tailwind",
-        "linter": "eslint"
-      }
-    }
+    "@nx/next": { "application": { "style": "tailwind", "linter": "eslint" } }
   },
   "targetDefaults": {
     "@nx/js:tsc": {
@@ -65,5 +52,6 @@
       "inputs": ["production", "^production"]
     }
   },
-  "useLegacyCache": true
+  "useLegacyCache": true,
+  "nxCloudId": "67dbcc1587c5f14dd23f3af4"
 }
