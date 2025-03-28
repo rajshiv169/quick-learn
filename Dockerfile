@@ -13,6 +13,9 @@ RUN npx nx reset
 # Copy the rest of the codebase
 COPY . .
 
+# disabling telemetry
+RUN npx next telemetry disable
+
 # Build the applications
 RUN npx nx reset && npx nx build quick-learn-backend --prod --skip-nx-cache
 RUN npx nx reset && npx nx build quick-learn-frontend --prod --skip-nx-cache
