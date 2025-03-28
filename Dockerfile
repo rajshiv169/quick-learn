@@ -13,6 +13,9 @@ RUN npx nx reset
 # Copy the rest of the codebase
 COPY . .
 
+# disabling telemetry
+RUN npx next telemetry disable
+
 # Build the applications
 RUN npx nx reset && npx nx build quick-learn-backend --prod --skip-nx-cache
 RUN npx nx reset && npx nx build quick-learn-frontend --prod --skip-nx-cache
@@ -37,7 +40,7 @@ COPY --from=builder /app/apps/quick-learn-frontend/public ./apps/quick-learn-fro
 COPY --from=builder /app/nx.json ./
 
 # Expose ports for both Next.js and Nest.js applications
-EXPOSE 10000 4000
+EXPOSE 3000 4000
 
 # Create a startup script in the app directory
 WORKDIR /app
